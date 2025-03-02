@@ -1,81 +1,84 @@
-﻿[System.Serializable]
-public class SerializableEvent : SerializableEventBase
+﻿namespace Siccity.SerializableCallback
 {
-    public void Invoke()
+    [System.Serializable]
+    public class SerializableEvent : SerializableEventBase
     {
-        if (invokable == null) Cache();
-        if (_dynamic)
+        public void Invoke()
         {
-            InvokableEvent call = invokable as InvokableEvent;
-            call.Invoke();
-        }
-        else
-        {
-            invokable.Invoke(Args);
+            if (invokable == null) Cache();
+            if (_dynamic)
+            {
+                InvokableEvent call = invokable as InvokableEvent;
+                call.Invoke();
+            }
+            else
+            {
+                invokable.Invoke(Args);
+            }
         }
     }
-}
 
-public abstract class SerializableEvent<T0> : SerializableEventBase
-{
-    public void Invoke(T0 arg0)
+    public abstract class SerializableEvent<T0> : SerializableEventBase
     {
-        if (invokable == null) Cache();
-        if (_dynamic)
+        public void Invoke(T0 arg0)
         {
-            invokable.Invoke(arg0);
-        }
-        else
-        {
-            invokable.Invoke(Args);
+            if (invokable == null) Cache();
+            if (_dynamic)
+            {
+                invokable.Invoke(arg0);
+            }
+            else
+            {
+                invokable.Invoke(Args);
+            }
         }
     }
-}
 
-public abstract class SerializableEvent<T0, T1> : SerializableEventBase
-{
-    public void Invoke(T0 arg0, T1 arg1)
+    public abstract class SerializableEvent<T0, T1> : SerializableEventBase
     {
-        if (invokable == null) Cache();
-        if (_dynamic)
+        public void Invoke(T0 arg0, T1 arg1)
         {
-            invokable.Invoke(arg0, arg1);
-        }
-        else
-        {
-            invokable.Invoke(Args);
+            if (invokable == null) Cache();
+            if (_dynamic)
+            {
+                invokable.Invoke(arg0, arg1);
+            }
+            else
+            {
+                invokable.Invoke(Args);
+            }
         }
     }
-}
 
-public abstract class SerializableEvent<T0, T1, T2> : SerializableEventBase
-{
-    public void Invoke(T0 arg0, T1 arg1, T2 arg2)
+    public abstract class SerializableEvent<T0, T1, T2> : SerializableEventBase
     {
-        if (invokable == null) Cache();
-        if (_dynamic)
+        public void Invoke(T0 arg0, T1 arg1, T2 arg2)
         {
-            invokable.Invoke(arg0, arg1, arg2);
-        }
-        else
-        {
-            invokable.Invoke(Args);
+            if (invokable == null) Cache();
+            if (_dynamic)
+            {
+                invokable.Invoke(arg0, arg1, arg2);
+            }
+            else
+            {
+                invokable.Invoke(Args);
+            }
         }
     }
-}
 
-public abstract class SerializableEvent<T0, T1, T2, T3> : SerializableEventBase
-{
-    public void Invoke(T0 arg0, T1 arg1, T2 arg2, T3 arg3)
+    public abstract class SerializableEvent<T0, T1, T2, T3> : SerializableEventBase
     {
-        if (invokable == null) Cache();
-        if (_dynamic)
+        public void Invoke(T0 arg0, T1 arg1, T2 arg2, T3 arg3)
         {
-            invokable.Invoke(arg0, arg1, arg2, arg3);
-        }
-        else
-        {
-            invokable.Invoke(Args);
+            if (invokable == null) Cache();
+            if (_dynamic)
+            {
+                invokable.Invoke(arg0, arg1, arg2, arg3);
+            }
+            else
+            {
+                invokable.Invoke(Args);
+            }
         }
     }
 }

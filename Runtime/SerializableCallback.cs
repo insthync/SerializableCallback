@@ -1,79 +1,82 @@
-public abstract class SerializableCallback<TReturn> : SerializableCallbackBase<TReturn>
+namespace Siccity.SerializableCallback
 {
-    public TReturn Invoke()
+    public abstract class SerializableCallback<TReturn> : SerializableCallbackBase<TReturn>
     {
-        if (func == null) Cache();
-        if (_dynamic)
+        public TReturn Invoke()
         {
-            return func.Invoke();
-        }
-        else
-        {
-            return func.Invoke(Args);
+            if (func == null) Cache();
+            if (_dynamic)
+            {
+                return func.Invoke();
+            }
+            else
+            {
+                return func.Invoke(Args);
+            }
         }
     }
-}
 
-public abstract class SerializableCallback<T0, TReturn> : SerializableCallbackBase<TReturn>
-{
-    public TReturn Invoke(T0 arg0)
+    public abstract class SerializableCallback<T0, TReturn> : SerializableCallbackBase<TReturn>
     {
-        if (func == null) Cache();
-        if (_dynamic)
+        public TReturn Invoke(T0 arg0)
         {
-            return func.Invoke(arg0);
-        }
-        else
-        {
-            return func.Invoke(Args);
+            if (func == null) Cache();
+            if (_dynamic)
+            {
+                return func.Invoke(arg0);
+            }
+            else
+            {
+                return func.Invoke(Args);
+            }
         }
     }
-}
 
-public abstract class SerializableCallback<T0, T1, TReturn> : SerializableCallbackBase<TReturn>
-{
-    public TReturn Invoke(T0 arg0, T1 arg1)
+    public abstract class SerializableCallback<T0, T1, TReturn> : SerializableCallbackBase<TReturn>
     {
-        if (func == null) Cache();
-        if (_dynamic)
+        public TReturn Invoke(T0 arg0, T1 arg1)
         {
-            return func.Invoke(arg0, arg1);
-        }
-        else
-        {
-            return func.Invoke(Args);
+            if (func == null) Cache();
+            if (_dynamic)
+            {
+                return func.Invoke(arg0, arg1);
+            }
+            else
+            {
+                return func.Invoke(Args);
+            }
         }
     }
-}
 
-public abstract class SerializableCallback<T0, T1, T2, TReturn> : SerializableCallbackBase<TReturn>
-{
-    public TReturn Invoke(T0 arg0, T1 arg1, T2 arg2)
+    public abstract class SerializableCallback<T0, T1, T2, TReturn> : SerializableCallbackBase<TReturn>
     {
-        if (func == null) Cache();
-        if (_dynamic)
+        public TReturn Invoke(T0 arg0, T1 arg1, T2 arg2)
         {
-            return func.Invoke(arg0, arg1, arg2);
-        }
-        else
-        {
-            return func.Invoke(Args);
+            if (func == null) Cache();
+            if (_dynamic)
+            {
+                return func.Invoke(arg0, arg1, arg2);
+            }
+            else
+            {
+                return func.Invoke(Args);
+            }
         }
     }
-}
 
-public abstract class SerializableCallback<T0, T1, T2, T3, TReturn> : SerializableCallbackBase<TReturn>
-{
-    public TReturn Invoke(T0 arg0, T1 arg1, T2 arg2, T3 arg3)
+    public abstract class SerializableCallback<T0, T1, T2, T3, TReturn> : SerializableCallbackBase<TReturn>
     {
-        if (func == null) Cache();
-        if (_dynamic)
+        public TReturn Invoke(T0 arg0, T1 arg1, T2 arg2, T3 arg3)
         {
-            return func.Invoke(arg0, arg1, arg2, arg3);
-        }
-        else
-        {
-            return func.Invoke(Args);
+            if (func == null) Cache();
+            if (_dynamic)
+            {
+                return func.Invoke(arg0, arg1, arg2, arg3);
+            }
+            else
+            {
+                return func.Invoke(Args);
+            }
         }
     }
 }

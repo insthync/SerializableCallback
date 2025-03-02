@@ -1,20 +1,23 @@
 ﻿using System.Reflection;
 
-public class InvokableEvent : InvokableEventBase
+namespace Siccity.SerializableCallback
 {
-    private object target;
-    private string methodName;
-
-    public override void Invoke(params object[] args)
+    public class InvokableEvent : InvokableEventBase
     {
-        if (target == null || string.IsNullOrEmpty(methodName))
-            return;
-        target.GetType().GetMethod(methodName, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic).Invoke(target, args);
-    }
+        private object target;
+        private string methodName;
 
-    public InvokableEvent(object target, string methodName)
-    {
-        this.target = target;
-        this.methodName = methodName;
+        public override void Invoke(params object[] args)
+        {
+            if (target == null || string.IsNullOrEmpty(methodName))
+                return;
+            target.GetType().GetMethod(methodName, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic).Invoke(target, args);
+        }
+
+        public InvokableEvent(object target, string methodName)
+        {
+            this.target = target;
+            this.methodName = methodName;
+        }
     }
 }

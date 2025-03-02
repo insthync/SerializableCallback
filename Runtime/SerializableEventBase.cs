@@ -1,38 +1,41 @@
 ﻿using System;
 
-public abstract class SerializableEventBase : SerializableCallbackBase
+namespace Siccity.SerializableCallback
 {
-    public InvokableEventBase invokable;
-
-    public override void ClearCache()
+    public abstract class SerializableEventBase : SerializableCallbackBase
     {
-        base.ClearCache();
-        invokable = null;
-    }
+        public InvokableEventBase invokable;
 
-    protected override void Cache()
-    {
-        if (_target == null || string.IsNullOrEmpty(_methodName))
+        public override void ClearCache()
         {
-            invokable = new InvokableEvent(null, null);
+            base.ClearCache();
+            invokable = null;
         }
-        else
+
+        protected override void Cache()
         {
-            if (_dynamic)
+            if (_target == null || string.IsNullOrEmpty(_methodName))
             {
-                invokable = new InvokableEvent(target, methodName);
+                invokable = new InvokableEvent(null, null);
             }
             else
             {
-                invokable = GetPersistentMethod();
+                if (_dynamic)
+                {
+                    invokable = new InvokableEvent(target, methodName);
+                }
+                else
+                {
+                    invokable = GetPersistentMethod();
+                }
             }
         }
-    }
 
-    protected InvokableEventBase GetPersistentMethod()
-    {
-        Type[] types = new Type[ArgTypes.Length];
-        Array.Copy(ArgTypes, types, ArgTypes.Length);
-        return new InvokableEvent(target, methodName);
+        protected InvokableEventBase GetPersistentMethod()
+        {
+            Type[] types = new Type[ArgTypes.Length];
+            Array.Copy(ArgTypes, types, ArgTypes.Length);
+            return new InvokableEvent(target, methodName);
+        }
     }
 }
